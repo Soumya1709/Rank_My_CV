@@ -6,6 +6,7 @@ const Analysis = () => {
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState(null);
   const [error, setError] = useState("");
+  const [jobDescription, setJobDescription] = useState("");
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -43,7 +44,7 @@ const Analysis = () => {
                   },
                   {
                     type: "text",
-                    text: `Analyze this resume for ATS compatibility. Return ONLY a valid JSON object with no markdown, no explanation. Use this exact structure:
+                    text: `Job Description:\n${jobDescription}\n\nAnalyze this resume for ATS compatibility against the job description above. Return ONLY a valid JSON object with no markdown, no explanation. Use this exact structure:
 {
   "atsScore": <number 0-100>,
   "alignment": "<Strong Alignment | Moderate Alignment | Weak Alignment>",
@@ -93,27 +94,38 @@ const Analysis = () => {
   const circumference = 2 * Math.PI * 45;
 
   return (
-    <div className="analysis-page">
-      {!report && !loading && (
-        <div className="upload-section">
-          <h1>Analysis Report</h1>
-          <p>Upload your resume to get an ATS compatibility analysis.</p>
-          <div className="upload-box">
-            <input
-              type="file"
-              accept=".pdf,.docx"
-              onChange={handleFileChange}
-              id="resume-upload"
+  <div className="analysis-page">
+    {!report && !loading && (
+      <div className="upload-section">
+        <h1>Analysis Report</h1>
+        <p>Upload your resume to get an ATS compatibility analysis.</p>
+        <div className="upload-box">
+          <div className="jd-section">
+            <label className="jd-label">Paste the Job Description</label>
+            <textarea
+              className="jd-textarea"
+              placeholder="Paste the job description here to get a tailored ATS analysis..."
+              value={jobDescription}
+              onChange={(e) => setJobDescription(e.target.value)}
+              rows={6}
             />
-            <label htmlFor="resume-upload" className="upload-label">
-              {file ? `📄 ${file.name}` : "📁 Click to upload PDF or DOCX"}
-            </label>
-            {error && <p className="error-text">{error}</p>}
-            <button className="analyze-btn" onClick={handleAnalyze}>
-              Analyze Resume
-            </button>
           </div>
+          <label className="upload-file-label">Upload Your Resume (PDF or DOCX)</label>
+          <input
+            type="file"
+            accept=".pdf,.docx"
+            onChange={handleFileChange}
+            id="resume-upload"
+          />
+          <label htmlFor="resume-upload" className="upload-label">
+            {file ? `📄 ${file.name}` : "📁 Click to upload PDF or DOCX"}
+          </label>
+          {error && <p className="error-text">{error}</p>}
+          <button className="analyze-btn" onClick={handleAnalyze}>
+            Submit
+          </button>
         </div>
+      </div>
       )}
 
       {loading && (

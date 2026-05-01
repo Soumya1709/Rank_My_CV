@@ -31,33 +31,33 @@
 
 .upload-label {
   padding: 14px 28px;
-  border: 2px dashed #6c3fc5;
+  border: 2px dashed #0685d4;
   border-radius: 10px;
   cursor: pointer;
-  color: #6c3fc5;
+  color: #1d1860;
   font-weight: 500;
-  background: #f3effe;
+  background: #f0f7ff;
   transition: background 0.2s;
 }
 
 .upload-label:hover {
-  background: #e9dcfc;
+  background: #d6eefa;
 }
 
 .analyze-btn {
   padding: 12px 30px;
-  background: #6c3fc5;
+  background: linear-gradient(135deg, #1d1860 0%, #0685d4 100%);
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
 }
 
 .analyze-btn:hover {
-  background: #5a31a8;
+  opacity: 0.88;
 }
 
 .error-text {
@@ -75,7 +75,7 @@
   width: 52px;
   height: 52px;
   border: 5px solid #e5e7eb;
-  border-top-color: #6c3fc5;
+  border-top-color: #0685d4;
   border-radius: 50%;
   animation: spin 0.9s linear infinite;
   margin: 0 auto 16px;
@@ -180,7 +180,10 @@
   transition: width 0.5s ease;
 }
 
-.progress-fill.blue { background: #6c3fc5; }
+.progress-fill.blue {
+  background: linear-gradient(135deg, #1d1860 0%, #0685d4 100%);
+}
+
 .progress-fill.orange { background: #f59e0b; }
 
 /* Badge */
@@ -239,8 +242,8 @@
 }
 
 .fix-box {
-  background: #f5f3ff;
-  border-left: 3px solid #6c3fc5;
+  background: #f0f7ff;
+  border-left: 3px solid #0685d4;
   padding: 10px 12px;
   border-radius: 6px;
 }
@@ -254,7 +257,7 @@
 
 .fix-text {
   font-size: 0.83rem;
-  color: #6c3fc5;
+  color: #1d1860;
   margin: 4px 0 0;
 }
 
@@ -293,4 +296,65 @@
 .reanalyze {
   text-align: center;
   margin-top: 10px;
+}
+
+/* Job Description Section */
+.jd-section {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.jd-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1d1860 0%, #0685d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.jd-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #a8d4f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #1e1e2e;
+  background: #f0f7ff;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.jd-textarea:focus {
+  border-color: #0685d4;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(6, 133, 212, 0.08);
+}
+
+.jd-textarea::placeholder {
+  color: #a0bfd4;
+  font-size: 0.9rem;
+}
+
+/* Upload file sub-label */
+.upload-file-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1d1860 0%, #0685d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
 }
